@@ -38,5 +38,9 @@
 	<string>pk.eyJ1IjoiZmVmZXJ1Y2hpIiwiYSI6ImNqZHplMjY2dDBiYzQyd3FscHVrdjU0NnUifQ.GFmQa8Z-6ZtTYUmxklA-2A</string>
 	<key>NSLocationWhenInUseUsageDescription </key>
 	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
+	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
+	<string>YES</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 </dict>
 </plist>
