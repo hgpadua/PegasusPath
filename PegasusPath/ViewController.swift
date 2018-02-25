@@ -10,46 +10,50 @@ import UIKit
 import Mapbox
 
 class ViewController: UIViewController, MGLMapViewDelegate {
-
+    
+    private var ucf: MGLCoordinateBounds!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let url = URL(string: "mapbox://styles/mapbox/streets-v10")
-        let mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 40.74699, longitude: -73.98742), zoomLevel: 9, animated: false)
-        view.addSubview(mapView)
-        
-        // Add a point annotation
-        let annotation = MGLPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 40.77014, longitude: -73.97480)
-        annotation.title = "Central Park"
-        annotation.subtitle = "The biggest park in New York City!"
-        mapView.addAnnotation(annotation)
-        
-        // Set the map view's delegate to the view controller
         mapView.delegate = self
         
-        // Allow the map view to display the user's location
-        mapView.showsUserLocation = true
-    }
-
-    // Implement the delegate method that allows annotations to show callouts when tapped
-    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-        return true
+        // UCF, Orlando, Florida
+        let center = CLLocationCoordinate2D(latitude: 28.6024, longitude: -81.2001)
+        
+        // Starting point
+        mapView.setCenter(center, zoomLevel: 14, direction: 0, animated: false)
+        
+        // UCF's bounds
+        let ne = CLLocationCoordinate2D(latitude: 28.6345, longitude: -81.17340)
+        let sw = CLLocationCoordinate2D(latitude: 28.5820, longitude: -81.2241)
+        ucf = MGLCoordinateBounds(sw: sw, ne: ne)
+        
+        view.addSubview(mapView)
     }
     
-    // Zoom to the annotation when it is selected
-    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-        let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4000, pitch: 0, heading: 0)
-        mapView.setCamera(camera, animated: true)
+    // Restricts the camera movement.
+    func mapView(_ mapView: MGLMapView, shouldChangeFrom oldCamera: MGLMapCamera, to newCamera: MGLMapCamera) -> Bool {
+        
+        // Get the current camera to restore it after.
+        let currentCamera = mapView.camera
+        
+        // From the new camera obtain the center to test if it’s inside the boundaries.
+        let newCameraCenter = newCamera.centerCoordinate
+        
+        // Set the map’s visible bounds to newCamera.
+        mapView.camera = newCamera
+        let newVisibleCoordinates = mapView.visibleCoordinateBounds
+        
+        // Revert the camera.
+        mapView.camera = currentCamera
+        
+        // Test if the newCameraCenter and newVisibleCoordinates are inside self.ucf.
+        let inside = MGLCoordinateInCoordinateBounds(newCameraCenter, self.ucf)
+        let intersects = MGLCoordinateInCoordinateBounds(newVisibleCoordinates.ne, self.ucf) && MGLCoordinateInCoordinateBounds(newVisibleCoordinates.sw, self.ucf)
+        
+        return inside && intersects
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-
