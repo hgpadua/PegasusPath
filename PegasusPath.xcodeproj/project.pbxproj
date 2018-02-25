@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28007B111140CB6EB4ADBCBD /* libPods-PegasusPath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE943775EDF6A28325BB2009 /* libPods-PegasusPath.a */; };
 		9D8F4C3E203E2AA200A81D53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F4C3D203E2AA200A81D53 /* AppDelegate.swift */; };
 		9D8F4C40203E2AA200A81D53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F4C3F203E2AA200A81D53 /* ViewController.swift */; };
 		9D8F4C43203E2AA200A81D53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8F4C41203E2AA200A81D53 /* Main.storyboard */; };
 		9D8F4C45203E2AA200A81D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8F4C44203E2AA200A81D53 /* Assets.xcassets */; };
 		9D8F4C48203E2AA200A81D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8F4C46203E2AA200A81D53 /* LaunchScreen.storyboard */; };
 		9D8F4C53203E2AA300A81D53 /* PegasusPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F4C52203E2AA300A81D53 /* PegasusPathTests.swift */; };
+		DAFBB2124C967AFD9D3792C5 /* Pods_PegasusPath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A8EB4D49F6B6B7531E6384 /* Pods_PegasusPath.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		939C48C224FB5E6DC7F8412F /* Pods-PegasusPath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PegasusPath.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PegasusPath/Pods-PegasusPath.debug.xcconfig"; sourceTree = "<group>"; };
+		9D40383520433AD2008B73F3 /* MapboxCoreNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapboxCoreNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8F4C3A203E2AA200A81D53 /* PegasusPath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PegasusPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8F4C3D203E2AA200A81D53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8F4C3F203E2AA200A81D53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +40,7 @@
 		9D8F4C52203E2AA300A81D53 /* PegasusPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegasusPathTests.swift; sourceTree = "<group>"; };
 		9D8F4C54203E2AA300A81D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABE74A42E3D0ED5085C1A1FB /* Pods-PegasusPath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PegasusPath.release.xcconfig"; path = "Pods/Target Support Files/Pods-PegasusPath/Pods-PegasusPath.release.xcconfig"; sourceTree = "<group>"; };
-		EE943775EDF6A28325BB2009 /* libPods-PegasusPath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PegasusPath.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A8EB4D49F6B6B7531E6384 /* Pods_PegasusPath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PegasusPath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28007B111140CB6EB4ADBCBD /* libPods-PegasusPath.a in Frameworks */,
+				DAFBB2124C967AFD9D3792C5 /* Pods_PegasusPath.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +116,8 @@
 		B8FC1F34E75D318ED2B36368 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE943775EDF6A28325BB2009 /* libPods-PegasusPath.a */,
+				9D40383520433AD2008B73F3 /* MapboxCoreNavigation.framework */,
+				F2A8EB4D49F6B6B7531E6384 /* Pods_PegasusPath.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -262,13 +264,33 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PegasusPath/Pods-PegasusPath-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
+				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPolly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -439,6 +461,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BU932GPG3C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSPolly\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MapboxCoreNavigation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MapboxDirections.swift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MapboxMobileEvents\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MapboxNavigation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Polyline\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Solar\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Turf\"",
+					"\"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic\"",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = PegasusPath/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Feferuchi.PegasusPath;
@@ -455,6 +492,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BU932GPG3C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSPolly\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MapboxCoreNavigation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MapboxDirections.swift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MapboxMobileEvents\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MapboxNavigation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Polyline\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Solar\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Turf\"",
+					"\"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic\"",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = PegasusPath/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Feferuchi.PegasusPath;

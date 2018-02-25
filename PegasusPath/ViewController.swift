@@ -8,16 +8,24 @@
 
 import UIKit
 import Mapbox
+import MapboxCoreNavigation
+import MapboxNavigation
+import MapboxDirections
 
 class ViewController: UIViewController, MGLMapViewDelegate {
     
     private var ucf: MGLCoordinateBounds!
+    var mapView: NavigationMapView!
+    var directionRoute: Route?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds)
+        mapView = NavigationMapView(frame: view.bounds)
+        view.addSubview(mapView)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        //Set the map view's delegate
         mapView.delegate = self
         
         // UCF, Orlando, Florida
@@ -31,7 +39,13 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         let sw = CLLocationCoordinate2D(latitude: 28.5820, longitude: -81.2241)
         ucf = MGLCoordinateBounds(sw: sw, ne: ne)
         
-        view.addSubview(mapView)
+        //Alow the map to display the user's location
+        mapView.showsUserLocation = true
+        //mapView.setUserTrackingMode(.follow, animated: true)
+        
+        //Add a gesture recognizer to the map view
+        let setDestination = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
+        mapView.addGestureRecognizer(setDestination)
     }
     
     // Restricts the camera movement.
@@ -55,5 +69,20 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         let intersects = MGLCoordinateInCoordinateBounds(newVisibleCoordinates.ne, self.ucf) && MGLCoordinateInCoordinateBounds(newVisibleCoordinates.sw, self.ucf)
         
         return inside && intersects
+    }
+    
+    // Called when user long presses on the map.
+    @objc func didLongPress(_ sender: UILongPressGestureRecognizer) {
+        guard sender.state == .began else { return }
+        
+        // Converts point where user did a long press to map coordinates
+        let point = sender.location(in: mapView)
+        let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
+        
+        // Create a basic point annotation and add it to the map
+        let annotation = MGLPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = "Start navigation"
+        mapView.addAnnotation(annotation)
     }
 }
