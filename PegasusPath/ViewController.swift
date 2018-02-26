@@ -113,9 +113,9 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         let origin = Waypoint(coordinate: origin, coordinateAccuracy: -1, name: "Start")
         let destination = Waypoint(coordinate: destination, coordinateAccuracy: -1, name: "Finish")
         
-        // Specify that the route is intended for automobiles avoiding traffic
-        let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .automobileAvoidingTraffic)
-        
+        // Specify that the route is intended for walking
+        let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .walking)
+
         // Generate the route object and draw it on the map
         _ = Directions.shared.calculate(options) { [unowned self] (waypoints, routes, error) in
             self.directionsRoute = routes?.first
