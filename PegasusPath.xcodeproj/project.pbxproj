@@ -13,6 +13,7 @@
 		9D8F4C45203E2AA200A81D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8F4C44203E2AA200A81D53 /* Assets.xcassets */; };
 		9D8F4C48203E2AA200A81D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8F4C46203E2AA200A81D53 /* LaunchScreen.storyboard */; };
 		9D8F4C53203E2AA300A81D53 /* PegasusPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F4C52203E2AA300A81D53 /* PegasusPathTests.swift */; };
+		9DAD1FF92044B25D004E25D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DAD1FF82044B25D004E25D5 /* GoogleService-Info.plist */; };
 		DAFBB2124C967AFD9D3792C5 /* Pods_PegasusPath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A8EB4D49F6B6B7531E6384 /* Pods_PegasusPath.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		9D8F4C4E203E2AA300A81D53 /* PegasusPathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PegasusPathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8F4C52203E2AA300A81D53 /* PegasusPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PegasusPathTests.swift; sourceTree = "<group>"; };
 		9D8F4C54203E2AA300A81D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DAD1FF82044B25D004E25D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABE74A42E3D0ED5085C1A1FB /* Pods-PegasusPath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PegasusPath.release.xcconfig"; path = "Pods/Target Support Files/Pods-PegasusPath/Pods-PegasusPath.release.xcconfig"; sourceTree = "<group>"; };
 		F2A8EB4D49F6B6B7531E6384 /* Pods_PegasusPath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PegasusPath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +102,7 @@
 				9D8F4C44203E2AA200A81D53 /* Assets.xcassets */,
 				9D8F4C46203E2AA200A81D53 /* LaunchScreen.storyboard */,
 				9D8F4C49203E2AA200A81D53 /* Info.plist */,
+				9DAD1FF82044B25D004E25D5 /* GoogleService-Info.plist */,
 			);
 			path = PegasusPath;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8F4C48203E2AA200A81D53 /* LaunchScreen.storyboard in Resources */,
+				9DAD1FF92044B25D004E25D5 /* GoogleService-Info.plist in Resources */,
 				9D8F4C45203E2AA200A81D53 /* Assets.xcassets in Resources */,
 				9D8F4C43203E2AA200A81D53 /* Main.storyboard in Resources */,
 			);

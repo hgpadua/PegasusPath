@@ -77,6 +77,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         // Converts point where user did a long press to map coordinates
         let point = sender.location(in: mapView)
         let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
+
         
         // Create a basic point annotation and add it to the map
         let annotation = MGLPointAnnotation()
