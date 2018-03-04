@@ -11,15 +11,28 @@ import Mapbox
 import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
+import Firebase
+
+
 
 class ViewController: UIViewController, MGLMapViewDelegate {
     
     private var ucf: MGLCoordinateBounds!
     var mapView: NavigationMapView!
     var directionsRoute: Route?
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // [START setup]
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
+        
         
         mapView = NavigationMapView(frame: view.bounds)
         view.addSubview(mapView)
@@ -77,7 +90,8 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         // Converts point where user did a long press to map coordinates
         let point = sender.location(in: mapView)
         let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
-
+        //TODO: Save coordinate to databse
+        addEvent(coordinate: coordinate)
         
         // Create a basic point annotation and add it to the map
         let annotation = MGLPointAnnotation()
@@ -146,6 +160,25 @@ class ViewController: UIViewController, MGLMapViewDelegate {
             mapView.style?.addSource(source)
             mapView.style?.addLayer(lineStyle)
         }
+    }
+    
+    private func addEvent(coordinate: CLLocationCoordinate2D){
+        // [START addEvent]
+        // Add a new document with a generated ID
+        var ref: DocumentReference? = nil
+        ref = db.collection("events").addDocument(data: [
+            "name": "TEST",
+            "description": "TEST",
+            "latitude": coordinate.latitude,
+            "longitude": coordinate.longitude
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+        // [END add_ada_lovelace]
     }
     
 }
